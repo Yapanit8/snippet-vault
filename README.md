@@ -1,3 +1,11 @@
+# Snippet Vault
+
+A high-performance, personal code library designed to store, organize, and instantly retrieve reusable code snippets for faster development.
+
+## Description
+
+Snippet Vault is a full-stack web application built to solve the "junk drawer" problem of modern development. Instead of digging through old repositories or bookmarks to find specific configurations, Snippet Vault provides a centralized, searchable hub for your most valuable logic.
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
