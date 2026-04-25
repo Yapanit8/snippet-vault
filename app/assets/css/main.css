@@ -6,5 +6,8 @@
 }
 
 :root {
-  --ui-bg: white; /* red for light mode too, if needed */
+  --ui-bg: #f8fafc;
+  --ui-primary: #4f46e5;
+  --ui-text-highlighted: #000000;
 }
+
