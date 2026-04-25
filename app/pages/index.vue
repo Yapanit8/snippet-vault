@@ -1,13 +1,7 @@
 <template>
-  <div>
-    <UButton>TEST</UButton>
-  </div>
+  <UApp>
+    <div class="min-h-screen p-4">
+      <UButton>Test Button</UButton>
+    </div>
+  </UApp>
 </template>
-
-<script setup lang="ts">
-
-</script>
-
-<style scoped>
-
-</style>
