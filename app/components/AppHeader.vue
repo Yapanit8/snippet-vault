@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="h-16 flex justify-center border-b bg-white">
-      <div class="flex justify-between items-center px-4 w-full max-w-7xl">
+      <div class="flex justify-between items-center px-4 w-full max-w-7.5xl">
         <div class="flex gap-2 items-center">
           <div class="bg-indigo-600 w-10 h-10 rounded-xl flex items-center justify-center shadow-lg">
             <UIcon name="i-heroicons-code-bracket" class="w-6 h-6 text-white" />

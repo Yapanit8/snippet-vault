@@ -8,6 +8,11 @@
 :root {
   --ui-bg: #f8fafc;
   --ui-primary: #4f46e5;
+  --ui-neutral: #f8fafc;
   --ui-text-highlighted: #000000;
+}
+
+@theme {
+  --max-width-7\.5xl: 90rem;
 }
 
