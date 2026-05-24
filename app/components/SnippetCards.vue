@@ -20,11 +20,11 @@
           </div>
           <div class='opacity-0 group-hover:opacity-100 transition-opacity'>
             <UButton
-              icon="i-heroicons-document-duplicate-20-solid"
+              icon="i-heroicons-document-duplicate-solid"
               variant="ghost"
             />
             <UButton
-              icon='i-mdi-delete'
+              icon='i-mdi-trash'
               variant='ghost'
             />
           </div>
