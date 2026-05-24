@@ -2,10 +2,11 @@
   <UApp>
     <div class='flex gap-3'>
       <UBadge 
+        v-for="tab in snippetTabs"
+        :key="tab"
         class="rounded-full ring-gray-300 text-gray-500 px-5 py-1 bg-white" 
         variant="outline"
         size="lg"
-        v-for="tab in snippetTabs"
       >
       {{ tab }}
       </UBadge>
