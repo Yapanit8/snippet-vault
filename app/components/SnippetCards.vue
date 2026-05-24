@@ -40,6 +40,24 @@
         <p class='text-[0.7rem]'>Added 2 hours ago</p>
       </template>
     </UCard>
+
+    <!-- ADD SNIPPET CARD -->
+    <UCard
+      class="w-full group lg:w-md flex justify-center items-center"
+      :ui="{ 
+        root: 'border-3 border-dashed ring-0 hover:border-primary transition-all duration-400' 
+      }"
+    >
+      <div class='flex flex-col gap-5 justify-center items-center'>
+        <UButton
+          variant='soft'
+          class='rounded-full w-[3rem] h-[4rem] flex justify-center text-gray-400 group-hover:text-primary transition-all duration-400'
+          size='xl'
+          icon='i-lucide-plus'
+        />
+        <span class='text-gray-400 font-bold'>Add another snippet</span>
+      </div>
+    </UCard>
   </div>
 </template>
 
