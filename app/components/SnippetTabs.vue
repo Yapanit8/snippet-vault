@@ -1,4 +1,5 @@
 <template>
+  <!-- test: testing branch protection and CI -->
   <UApp>
     <div class='flex gap-3'>
       <UBadge 
