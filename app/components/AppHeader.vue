@@ -11,7 +11,7 @@
         
         <div class='flex items-center gap-3'>
           <UInput class='w-50 md:w-full'  icon="i-lucide-search" placeholder='Search snippets...' input-class="text-black"/>
-          <UButton icon="i-lucide-plus" class='text-white'>
+          <UButton @click='dialogStore.openAddSnippet()' icon="i-lucide-plus" class='text-white'>
             <span class='hidden whitespace-nowrap md:block'>New Snippet</span>
           </UButton>
         </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-
+const dialogStore = useDialogStore()
 </script>
 
 <style scoped>

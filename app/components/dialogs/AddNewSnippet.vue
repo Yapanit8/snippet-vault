@@ -27,6 +27,7 @@
         <UButton
           label='Cancel'
           variant='outline'
+          @click="dialogStore.closeAddSnippet()"
         />
         <UButton
           label='Save'
@@ -38,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-
+  const dialogStore = useDialogStore()
 </script>
 
 <style scoped>
