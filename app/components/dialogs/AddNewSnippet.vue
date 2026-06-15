@@ -7,6 +7,16 @@
       body: 'border-y border-gray-400 bg-white',
     }"
   >
+    <template #header>
+      <div class="flex justify-between items-center">
+        <span class="text-black font-bold">Add New Snippet</span>
+        <UButton
+          icon="i-lucide-x"
+          class="text-white"
+          @click="dialogStore.closeAddSnippet()"
+        ></UButton>
+      </div>
+    </template>
     <UForm>
       <UFormField
         label="Snippet Title"
@@ -95,9 +105,10 @@
 
 <script setup lang="ts">
 import type { Snippet } from "~/types";
+import { toast } from "vue3-toastify";
 
 const dialogStore = useDialogStore();
-const snippetStore = useSnippetStore()
+const snippetStore = useSnippetStore();
 
 const stackItems = ref(["Typescript", "SQL"]);
 const hashtagItems = ref([] as string[]);
@@ -107,7 +118,7 @@ const newSnippetDetails = ref<Snippet>({
   code: "",
   stack: [],
   hashtags: [],
-  createdDate: ""
+  createdDate: "",
 });
 
 const handleSelectMenuCreate = (
@@ -120,14 +131,31 @@ const handleSelectMenuCreate = (
   targetObject[key] = [...(targetObject[key] ?? []), newValue];
 };
 
+const clearNewSnippetFields = () => {
+  newSnippetDetails.value = {
+    title: "",
+    code: "",
+    stack: [],
+    hashtags: [],
+    createdDate: "",
+  };
+};
+
 const handleAddNewSnippet = () => {
+  try {
+    if (!newSnippetDetails.value.title.trim()) {
+      toast.error("Snippet Title is required!");
+      return;
+    }
 
-  if(!newSnippetDetails.value.title.trim()){
-    alert("Snippet title is required!")
-    return
+    snippetStore.addSnippet(newSnippetDetails.value);
+    clearNewSnippetFields();
+    toast.success("Snippet added successfully!");
+  } catch (error) {
+    console.error("Something went wrong adding new snippet!", error);
+    toast.error("Something went wrong adding new snippet!");
+    return;
   }
-
-  snippetStore.addSnippet(newSnippetDetails.value)
 };
 </script>
 

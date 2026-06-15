@@ -15,6 +15,7 @@ export const useSnippetStore = defineStore('snippet-items', () => {
       id: crypto.randomUUID(),
       createdDate: new Date().toISOString()
     })
+
   }
 
   return { snippetItems, addSnippet }

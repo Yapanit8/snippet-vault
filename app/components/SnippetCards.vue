@@ -7,28 +7,30 @@
     }">
       <template #header>
         <div class='flex justify-between'>
-          <div>
-            <div class="mb-2">
-              <UBadge variant='soft'>{{ snippet.stack }}</UBadge>
-            </div>
-            <div>
-              <span class='text-xl font-bold'>{{ snippet.title }}</span>
-            </div>
+          <div class='flex gap-2 flex-1 flex-wrap'>
+            <UBadge v-for="stack in snippet.stack" :key="stack" variant='soft'>
+              {{ stack }}
+            </UBadge>
           </div>
           <div class='opacity-0 group-hover:opacity-100 transition-opacity'>
             <UButton icon="i-heroicons-document-duplicate-solid" variant="ghost" />
             <UButton icon='i-mdi-trash' variant='ghost' />
           </div>
         </div>
+        <div class='mt-4'>
+          <span class='text-xl font-bold'>{{ snippet.title }}</span>
+        </div>
       </template>
-      <div class="bg-slate-900 rounded-lg p-4 mb-4 text-xs overflow-x-auto border border-slate-800">
+      <div class="bg-slate-900 rounded-lg p-4 mb-6 text-xs overflow-x-auto border border-slate-800">
         <pre><code><span class='text-white'>{{ snippet.code }}</span></code></pre>
       </div>
-      <UBadge variant='soft' class='bg-gray-200 text-gray-500' v-for="hashtag in snippet.hashtags" :key="hashtag">
-        {{ hashtag }}
-      </UBadge>
+      <div class='flex gap-2 flex-1 flex-wrap'>
+        <UBadge variant='soft' class='bg-gray-200 text-gray-500' v-for="hashtag in snippet.hashtags" :key="hashtag">
+          {{ hashtag }}
+        </UBadge>
+      </div>
       <template #footer>
-        <p class='text-[0.7rem]'>{{ snippet.createdDate }}</p>
+        <p class='text-[0.7rem]'>{{ formatDate(snippet.createdDate) }}</p>
       </template>
     </UCard>
 
@@ -49,6 +51,28 @@
 <script setup lang="ts">
 const dialogStore = useDialogStore()
 const snippetStore = useSnippetStore()
+
+const formatDate = (date:string) => {
+  const uploadedDate = new Date(date)
+  const dateToday = new Date()
+  const diffByMilliseconds = Math.abs(dateToday.getTime() - uploadedDate.getTime())
+  const diffByMinutes = Math.floor(diffByMilliseconds / (1000 * 60));
+  const diffByHours = Math.floor(diffByMilliseconds / (1000 * 60 * 60));
+
+  const getPlural = (time:number) => {return time <= 1 ? "" : "s"}
+
+  if(diffByHours > 23){
+    return uploadedDate.toDateString()
+  }else if(diffByMinutes == 0){
+    return "Added just now"
+  }else if(diffByMinutes > 0 && diffByMinutes < 60){
+    return `Added ${diffByMinutes} minute${getPlural(diffByMinutes)} ago`
+  }else{
+    return `Added ${diffByHours} hour${getPlural(diffByHours)} ago`
+  }
+
+}
+
 </script>
 
 <style scoped></style>
