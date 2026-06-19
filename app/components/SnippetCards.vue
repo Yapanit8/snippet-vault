@@ -1,6 +1,7 @@
 <template>
   <div class='flex flex-wrap gap-8'>
-    <UCard v-for="snippet in snippetStore.snippetItems" :key='snippet.id'
+    <UCard
+v-for="snippet in snippetStore.snippetItems" :key='snippet.id'
       variant="solid" class="w-full group lg:w-md hover:shadow-md transition-shadow duration-250" :ui="{
       root: 'border-2 border-gray-200 rounded-xl',
       body: 'sm:py-2 px-6'
@@ -25,7 +26,7 @@
         <pre><code><span class='text-white'>{{ snippet.code }}</span></code></pre>
       </div>
       <div class='flex gap-2 flex-1 flex-wrap'>
-        <UBadge variant='soft' class='bg-gray-200 text-gray-500' v-for="hashtag in snippet.hashtags" :key="hashtag">
+        <UBadge v-for="hashtag in snippet.hashtags" :key="hashtag" variant='soft' class='bg-gray-200 text-gray-500'>
           #{{ hashtag }}
         </UBadge>
       </div>
@@ -35,11 +36,13 @@
     </UCard>
 
     <!-- ADD SNIPPET CARD -->
-    <UCard class="w-full group lg:w-md flex justify-center items-center" :ui="{
+    <UCard
+class="w-full group lg:w-md flex justify-center items-center" :ui="{
       root: 'border-3 border-dashed ring-0 hover:border-primary transition-all duration-400'
     }" @click='dialogStore.openAddSnippet()'>
       <div class='flex flex-col gap-5 justify-center items-center'>
-        <UButton variant='soft'
+        <UButton
+variant='soft'
           class='rounded-full w-[3rem] h-[4rem] flex justify-center text-gray-400 group-hover:text-primary transition-all duration-400'
           size='xl' icon='i-lucide-plus'/>
         <span class='text-gray-400 font-bold'>Add another snippet</span>

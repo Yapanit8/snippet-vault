@@ -11,7 +11,7 @@
         
         <div class='flex items-center gap-3'>
           <UInput class='w-50 md:w-full'  icon="i-lucide-search" placeholder='Search snippets...' input-class="text-black"/>
-          <UButton @click='dialogStore.openAddSnippet()' icon="i-lucide-plus" class='text-white'>
+          <UButton icon="i-lucide-plus" class='text-white' @click='dialogStore.openAddSnippet()'>
             <span class='hidden whitespace-nowrap md:block'>New Snippet</span>
           </UButton>
         </div>

@@ -14,7 +14,7 @@
           icon="i-lucide-x"
           class="text-white"
           @click="dialogStore.closeAddSnippet()"
-        ></UButton>
+        />
       </div>
     </template>
     <UForm>
@@ -25,7 +25,7 @@
         <UInput
           v-model="newSnippetDetails.title"
           class="w-full"
-        ></UInput>
+        />
       </UFormField>
       <UFormField
         label="Stack Used"
@@ -60,7 +60,7 @@
           :ui="{
             base: 'bg-slate-900 rounded-lg p-4 mb-4 text-xs overflow-x-auto border text-white',
           }"
-        ></UTextarea>
+        />
       </UFormField>
       <UFormField
         label="Hashtags"
@@ -124,8 +124,8 @@ const newSnippetDetails = ref<Snippet>({
 const handleSelectMenuCreate = (
   newValue: string,
   optionsArray: string[],
-  targetObject: any,
-  key: string,
+  targetObject: Snippet,
+  key: keyof Pick<Snippet, "stack" | "hashtags">,
 ) => {
   optionsArray.push(newValue);
   targetObject[key] = [...(targetObject[key] ?? []), newValue];
