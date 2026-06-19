@@ -16,6 +16,10 @@ export const useSnippetStore = defineStore('snippet-items', () => {
       createdDate: new Date().toISOString()
     })
 
+    snippetItems.value.sort((a,b) => {
+      return b.createdDate.localeCompare(a.createdDate)
+    })
+
   }
 
   return { snippetItems, addSnippet }

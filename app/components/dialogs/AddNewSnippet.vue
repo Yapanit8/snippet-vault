@@ -151,6 +151,7 @@ const handleAddNewSnippet = () => {
     snippetStore.addSnippet(newSnippetDetails.value);
     clearNewSnippetFields();
     toast.success("Snippet added successfully!");
+    dialogStore.closeAddSnippet()
   } catch (error) {
     console.error("Something went wrong adding new snippet!", error);
     toast.error("Something went wrong adding new snippet!");

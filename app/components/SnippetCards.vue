@@ -26,7 +26,7 @@
       </div>
       <div class='flex gap-2 flex-1 flex-wrap'>
         <UBadge variant='soft' class='bg-gray-200 text-gray-500' v-for="hashtag in snippet.hashtags" :key="hashtag">
-          {{ hashtag }}
+          #{{ hashtag }}
         </UBadge>
       </div>
       <template #footer>
